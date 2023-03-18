@@ -19,12 +19,12 @@ public class VerifyMethod1 implements VerifyCustomer {
         for (Customer c : verifyList) {
 
             if (c.getIdentityNumber() == customer.getIdentityNumber()) {
-                System.out.println("Kişi doğrulandı");
+                System.out.println("Method 1 ile Kişi doğrulandı");
                 return true;
             }
 
         }
-        System.out.println("Kişi doğrulanamadı");
+        System.out.println("Method 1 ile kişi doğrulanamadı");
         return false;
         }
     }

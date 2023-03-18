@@ -19,6 +19,7 @@ public class Main {
         users.add(c5);
 
         CustomerManager cs = new CustomerManager(new VerifyMethod1());
+
         for (Customer c : users) {
             cs.addCustomer(c);
         }
@@ -36,12 +37,25 @@ public class Main {
             System.out.println(g.getGameName());
         }
         sm.sell(c2,game2);
+        cm.deleteCampaign(1);
         Campaign campaign2 = new Campaign(2,"Kampanya2",77,game2);
         cm.addCampaign(campaign2);
         sm.sell(c3,game2);
 
         for(Game g : c2.getOwnGames()){
             System.out.println(g.getGameName());
+        }
+        for(Customer c : cs.getAllCustomers()){
+            System.out.println(c.getId()+" "+c.getFirstName()+ " "+c.getLastName());
+        }
+        cs.deleteCustomer(2);
+        for(Customer c : cs.getAllCustomers()){
+            System.out.println(c.getId()+" "+c.getFirstName()+ " "+c.getLastName());
+        }
+        Customer newCustomer = new Customer(55,"12547896541","Mahmut","Koç",1996);
+        cs.updateCustomer(1,newCustomer);
+        for(Customer c : cs.getAllCustomers()){
+            System.out.println(c.getId()+" "+c.getFirstName()+ " "+c.getLastName());
         }
     }
 }

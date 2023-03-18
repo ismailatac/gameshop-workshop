@@ -15,7 +15,7 @@ public class CustomerManager {
         boolean verifyResult = verifyCustomer.verify(customer);
         if (verifyResult){
             customers.add(customer);
-            System.out.println("Kişi eklendi");
+            System.out.println(customer.getFirstName()+" "+customer.getLastName()+" kişisi eklendi");
         }
         else
             System.out.println("Kayıt yapılamadı.");
@@ -25,28 +25,34 @@ public class CustomerManager {
     }
     public void deleteCustomer(int id) {
         customers.remove(id);
-        System.out.println("silindi");
+        System.out.println(id+" numaralı kişi silindi");
     }
     public void updateCustomer(int id, Customer customer) {
         for (Customer customer1 : customers){
-            if (customer1 == customer){
+            if (customer1.getId() == id){
+
                 Customer cs = customer1;
-                this.deleteCustomer(id);
-                cs.setId(id);
+
+                cs.setId(customer.getId());
                 cs.setOwnGames(customer.getOwnGames());
                 cs.setBirthYear(customer.getBirthYear());
                 cs.setFirstName(customer.getFirstName());
                 cs.setLastName(customer.getLastName());
                 cs.setIdentityNumber(customer.getIdentityNumber());
-
-                customers.add(cs);
+                //this.deleteCustomer();
+                //customers.add(cs);
+                System.out.println(id+ " numaralı kişi güncellendi");
+                return;
 
             }
+
         }
-        System.out.println("güncellendi");
+        System.out.println("Güncellenecek kişi bulunamadı");
+
 
     }
     public ArrayList<Customer> getAllCustomers(){
+        System.out.println("Bütün kişiler listelendi");
         return customers;
     }
 
